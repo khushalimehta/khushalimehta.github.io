@@ -1,286 +1,570 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khushali Patel — Staff Full Stack Engineer</title>
+<meta name="description" content="Khushali Patel — Staff-level Full Stack Engineer with 8+ years architecting distributed systems and leading engineering initiatives at scale.">
+<style>
+  :root{
+    --bg:#fafaf9;
+    --bg-alt:#f2f1ee;
+    --surface:#ffffff;
+    --ink:#16181d;
+    --ink-soft:#4a4f58;
+    --ink-faint:#8a8f99;
+    --line:#e7e5e1;
+    --accent:#2f6f5e;
+    --accent-soft:#e7f1ec;
+    --accent-ink:#1f4a3d;
+    --maxw:1080px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  section{padding:96px 0;}
+  h1,h2,h3{font-weight:650;letter-spacing:-0.02em;margin:0;}
+  p{margin:0;}
 
-  <head>
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,250,249,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header.nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:18px;padding-bottom:18px;
+  }
+  .logo{font-weight:700;font-size:17px;letter-spacing:-0.01em;}
+  .logo span{color:var(--accent);}
+  nav.links{display:flex;gap:32px;}
+  nav.links a{font-size:14.5px;color:var(--ink-soft);font-weight:500;transition:color .2s;}
+  nav.links a:hover{color:var(--ink);}
+  .nav-cta{
+    background:var(--ink);color:#fff;padding:9px 18px;border-radius:100px;
+    font-size:14px;font-weight:600;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--accent-ink);}
+  .nav-toggle{display:none;}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  /* HERO */
+  .hero{padding:120px 0 100px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--accent-soft);color:var(--accent-ink);
+    padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;
+    margin-bottom:28px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .hero h1{font-size:clamp(38px,5.5vw,64px);line-height:1.06;max-width:820px;}
+  .hero h1 .accent{color:var(--accent);}
+  .hero .lede{
+    margin-top:26px;font-size:19px;color:var(--ink-soft);max-width:640px;
+  }
+  .hero-actions{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:100px;font-weight:600;font-size:15px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--ink);color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+  .btn-outline{border:1.5px solid var(--line);color:var(--ink);background:var(--surface);}
+  .btn-outline:hover{border-color:var(--ink);transform:translateY(-2px);}
 
-    <title>Khushali Mehta</title>
-    <!--For icons-->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-  
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-    <link href="css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- Custom styles for this template -->
-    <link href="css/resume.min.css" rel="stylesheet">
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    margin-top:72px;padding-top:44px;border-top:1px solid var(--line);
+  }
+  .stat-num{font-size:32px;font-weight:700;color:var(--accent-ink);letter-spacing:-0.02em;}
+  .stat-label{font-size:13.5px;color:var(--ink-faint);margin-top:4px;}
 
-  </head>
+  /* SECTION HEADERS */
+  .section-tag{
+    font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:14px;
+  }
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,38px);}
+  .section-head p{margin-top:14px;color:var(--ink-soft);font-size:16.5px;}
 
-  <body id="page-top">
+  /* ABOUT */
+  .about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
+  .about-body p{color:var(--ink-soft);font-size:17px;margin-bottom:18px;}
+  .about-body p:last-child{margin-bottom:0;}
+  .fact-card{
+    background:var(--bg-alt);border-radius:var(--radius);padding:24px;
+    border:1px solid var(--line);
+  }
+  .fact-list{display:flex;flex-direction:column;gap:18px;}
+  .fact-item{display:flex;gap:14px;align-items:flex-start;}
+  .fact-icon{
+    width:36px;height:36px;border-radius:10px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    color:var(--accent-ink);font-size:16px;
+  }
+  .fact-title{font-weight:600;font-size:14.5px;}
+  .fact-sub{font-size:13.5px;color:var(--ink-faint);margin-top:2px;}
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Khushali Mehta</span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profilepic.jpg" alt="">
-        </span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-          </li>
-          <!--<li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-          </li>-->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-          </li>
-        </ul>
-      </div>
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .skill-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .skill-card:hover{box-shadow:0 12px 28px rgba(20,20,20,0.06);transform:translateY(-3px);}
+  .skill-card h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+  .skill-card h3 .ic{
+    width:30px;height:30px;border-radius:8px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;font-size:14px;
+  }
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:12.5px;font-weight:500;color:var(--ink-soft);
+    background:var(--bg-alt);border:1px solid var(--line);
+    padding:5px 11px;border-radius:100px;
+  }
+
+  /* EXPERIENCE */
+  .experience{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .timeline{display:flex;flex-direction:column;gap:0;}
+  .job{
+    display:grid;grid-template-columns:220px 1fr;gap:40px;
+    padding:40px 0;border-top:1px solid var(--line);
+  }
+  .job:first-child{border-top:none;}
+  .job-meta{position:sticky;top:90px;align-self:start;}
+  .job-dates{font-size:13.5px;font-weight:600;color:var(--accent-ink);background:var(--accent-soft);display:inline-block;padding:5px 12px;border-radius:100px;margin-bottom:12px;}
+  .job-company{font-weight:700;font-size:16px;}
+  .job-place{font-size:13.5px;color:var(--ink-faint);margin-top:3px;}
+  .job-role{font-size:20px;font-weight:650;margin-bottom:6px;}
+  .job-stack{font-size:13px;color:var(--ink-faint);margin-bottom:18px;font-style:italic;}
+  .job-points{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+  .job-points li{
+    position:relative;padding-left:22px;color:var(--ink-soft);font-size:15.5px;
+  }
+  .job-points li::before{
+    content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+  }
+
+  /* HIGHLIGHTS / IMPACT */
+  .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .impact-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;
+  }
+  .impact-num{font-size:34px;font-weight:750;color:var(--accent-ink);letter-spacing:-0.02em;}
+  .impact-label{font-size:15px;font-weight:600;margin-top:10px;}
+  .impact-desc{font-size:13.5px;color:var(--ink-faint);margin-top:8px;}
+
+  /* EDUCATION + CERTS */
+  .split-two{background:var(--surface);border-top:1px solid var(--line);}
+  .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .edu-item{padding:22px 0;border-top:1px solid var(--line);}
+  .edu-item:first-child{border-top:none;}
+  .edu-degree{font-weight:650;font-size:16.5px;}
+  .edu-school{color:var(--ink-soft);font-size:14.5px;margin-top:4px;}
+  .edu-date{color:var(--ink-faint);font-size:13px;margin-top:4px;}
+  .cert-list{display:flex;flex-direction:column;gap:14px;}
+  .cert-item{
+    display:flex;align-items:center;gap:14px;background:var(--bg-alt);
+    border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+  }
+  .cert-badge{
+    width:38px;height:38px;border-radius:10px;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;
+  }
+  .cert-name{font-weight:600;font-size:14.5px;}
+
+  /* CONTACT */
+  .contact{
+    background:var(--ink);color:#fff;text-align:center;
+  }
+  .contact .section-tag{color:#8ad9bc;}
+  .contact h2{color:#fff;font-size:clamp(30px,4.5vw,46px);max-width:680px;margin:0 auto;}
+  .contact p.lede{color:#c3c6cc;margin-top:18px;font-size:17px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .contact-actions{display:flex;gap:16px;justify-content:center;margin-top:38px;flex-wrap:wrap;}
+  .contact .btn-primary{background:var(--accent);}
+  .contact .btn-primary:hover{background:#3a8571;}
+  .contact .btn-outline{background:transparent;border-color:#3a3d44;color:#fff;}
+  .contact .btn-outline:hover{border-color:#fff;}
+  .contact-links{margin-top:48px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:14.5px;color:#c3c6cc;}
+  .contact-links a:hover{color:#fff;}
+
+  footer{
+    background:var(--ink);color:#8a8f99;text-align:center;padding:26px 0;
+    font-size:13px;border-top:1px solid #2a2d33;
+  }
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:860px){
+    nav.links{display:none;}
+    .about-grid, .split-grid{grid-template-columns:1fr;gap:36px;}
+    .skills-grid{grid-template-columns:1fr 1fr;}
+    .impact-grid{grid-template-columns:1fr;}
+    .job{grid-template-columns:1fr;gap:16px;}
+    .job-meta{position:static;}
+    .hero-stats{grid-template-columns:repeat(2,1fr);}
+    section{padding:64px 0;}
+  }
+  @media (max-width:560px){
+    .skills-grid{grid-template-columns:1fr;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="logo">Khushali<span>.</span>Patel</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#impact">Impact</a>
+      <a href="#education">Education</a>
     </nav>
+    <a class="nav-cta" href="mailto:khushalimehta49@gmail.com">Get in touch</a>
+  </div>
+</header>
 
-    <div class="container-fluid p-0">
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow reveal"><span class="dot"></span>Open to Staff / Senior Full Stack roles</div>
+    <h1 class="reveal">Khushali Patel — building <span class="accent">resilient systems</span> for clinical &amp; enterprise scale.</h1>
+    <p class="lede reveal">Staff-level Full Stack Engineer with 8+ years architecting distributed systems, leading engineering initiatives, and shipping infrastructure that runs at 99.9% availability for 100+ concurrent users. I own problems end-to-end — API contracts, data models, cross-team alignment — and turn ambiguity into scalable, maintainable software.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="mailto:khushalimehta49@gmail.com">Email me</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/khushalimehta" target="_blank" rel="noopener">View LinkedIn</a>
+      <a class="btn btn-outline" href="#experience">See experience ↓</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div>
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years in software engineering</div>
+      </div>
+      <div>
+        <div class="stat-num">99.9%</div>
+        <div class="stat-label">Service availability delivered</div>
+      </div>
+      <div>
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Repos under code review &amp; mentorship</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Industry-recognized certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-        <div class="my-auto">
-          <h1 class="mb-0">Khushali
-            <span class="text-primary">Mehta</span>
-          </h1>
-          <div class="subheading mb-5">Philadelphia,Pennsylvania · (832) 418-3676 ·
-            <a href="mailto:name@email.com">khushalimehta49@gmail.com</a>
-          </div>
-          <p class="lead mb-5">Currently working as a Software Engineer with more than 3 years of experience in Backend Development</p>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/in/khushalimehta/">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/khushalimehta">
-              <i class="fab fa-github"></i>
-            </a>
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="section-tag">About</div>
+        <h2 style="margin-bottom:22px;">Engineering leadership rooted in hands-on delivery.</h2>
+        <div class="about-body">
+          <p>I'm a Staff-level Full Stack Engineer based in Monroe, NJ, currently building clinical trial software at Medidata Solutions (a Dassault Systèmes company). Over 8+ years I've moved from hybrid mobile apps to manufacturing automation to distributed clinical data platforms — each step sharpening the same core skill: designing systems that stay reliable as they scale.</p>
+          <p>I'm known for owning end-to-end system design — API contracts, database schemas, and cross-team integration — and for translating ambiguous product problems into solutions that other engineering teams adopt as the standard. I care as much about the developer experience and code quality of a system as its uptime.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="fact-card">
+          <div class="fact-list">
+            <div class="fact-item">
+              <div class="fact-icon">📍</div>
+              <div>
+                <div class="fact-title">Monroe, New Jersey</div>
+                <div class="fact-sub">Open to remote &amp; hybrid roles</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">🎓</div>
+              <div>
+                <div class="fact-title">MS, Computer Science</div>
+                <div class="fact-sub">University of Houston-Clear Lake</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">🏢</div>
+              <div>
+                <div class="fact-title">Senior Applications Engineer</div>
+                <div class="fact-sub">Medidata Solutions, since 2022</div>
+              </div>
+            </div>
+            <div class="fact-item">
+              <div class="fact-icon">✉️</div>
+              <div>
+                <div class="fact-title">khushalimehta49@gmail.com</div>
+                <div class="fact-sub">(832) 418-3676</div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <hr class="m-0">
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
-        <div class="my-auto">
-          <h2 class="mb-5">Experience</h2>
-   	<div class="resume-item d-flex flex-column flex-md-row mb-5">
-              <div class="resume-content mr-auto">
-                  <h3 class="mb-0">Software Engineer</h3>
-                  <div class="subheading mb-3">West Pharmaceutical Services - Exton, PA </div>
-                  <p>
-                      Understanding the overall vision, business needs and the solution architecture for cross-platform mobile applications and develops cross platform (iOS, Android, and Windows) applications using Xamarin. Writing high-quality code for the mobile application for native and rich user experiences.
-			  Working to build business knowledge and to transform this knowledge and business requirements into technical specifications. Estimating technical requirements and breaks down work to user stories and tasks.
-			  Planning, developing, testing, deploying and monitoring cross-platform mobile apps in a DevOps model.
-			  Working with Leads and Architects on various prototypes, or proof of concept, to test solution.
-                  </p>
-                </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">April 2019 - Present</span>
-                  </div>
-              </div>
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-              <div class="resume-content mr-auto">
-                  <h3 class="mb-0">Application Developer</h3>
-                  <div class="subheading mb-3">Infinity Internet Marketing,Inc - Houston,TX</div>
-                  <p>
-                      Develop and maintain hybrid mobile applications built using Ionic Framework, SASS, SQLite and Angular JS. Implement RESTful API using Codeigniter for the interaction of the mobile application with MS SQL Server. 
-                      Install and implement packages NPM packages and Cordova plugins. Design logo and launch screens using Adobe Photoshop and Adobe Illustrator.
-                      Develop web portal using ASP.Net MVC, jQuery, Ajax, Entity Framework, Bootstrap, Angular JS, JSON and MS SQL Server.
-                  </p>
-                </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">September 2017 - April 2019</span>
-                  </div>
-              </div>
-          
-
-              <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                  <div class="resume-content mr-auto">
-                      <h3 class="mb-0">Software Developer</h3>
-                      <div class="subheading mb-3">MuveMint - Remote </div>
-                      <p>Develop web portal for the MuveMint customers using Ionic2 Framework, SASS Angular2 and Firebase. Implement charts using Highcharts. Integration and debug programming issues as they arise
-                      </p>
-                  </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">July 2017 - September 2017</span>
-                  </div>
-              </div>
-
-              <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                  <div class="resume-content mr-auto">
-                      <h3 class="mb-0">Web Developer</h3>
-                      <div class="subheading mb-3">Physical Research Laboratory - Ahmedabad,India </div>
-                      <p>Develop web application using HTML, CSS, JavaScript, ASP.NET, PHP, YII framework for indent generation and tracking the purchase order. Generate reports using Jasper Reports consignment documentation
-                      </p>
-                  </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">January 2015 - May 2015</span>
-                  </div>
-              </div>
-              <div class="resume-item d-flex flex-column flex-md-row">
-                  <div class="resume-content mr-auto">
-                      <h3 class="mb-0">Software Developer</h3>
-                      <div class="subheading mb-3">Applisoft Technologies - Ahmedabad,India </div>
-                      <p> Build application based on C# .Net and MS SQL Server for generating payroll of each employee automatically.Develop .Net application for health clinic to manage information of patients and billing. Implement LINQ for standardizing the query
-                      </p>
-                  </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">January 2014 - December 2014</span>
-                  </div>
-              </div>
-          </div>
-
-      </section>
-
-      <hr class="m-0">
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
-          <div class="my-auto">
-              <h2 class="mb-5">Education</h2>
-              <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                  <div class="resume-content mr-auto">
-                      <h3 class="mb-0">University of Houston - Clear Lake</h3>
-                      <div class="subheading mb-3">Master of Science</div>
-                      <div>Computer Science</div>
-                      <p>GPA: 3.6</p>
-                  </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">August 2015 - May 2017</span>
-                  </div>
-              </div>
-
-              <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                  <div class="resume-content mr-auto">
-                      <h3 class="mb-0">CHARUSAT</h3>
-                      <div class="subheading mb-3">Bachelor of Information Technology Engineering</div>
-                      <div>Information Technology</div>
-                      <p>GPA: 4.0</p>
-                  </div>
-                  <div class="resume-date text-md-right">
-                      <span class="text-primary">July 2011 - May 2015</span>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <hr class="m-0">
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-        <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
-
-          <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-          <ul class="list-inline dev-icons">
-	      <li class="list-inline-item">
-                   <i class="devicon-csharp-plain"></i>
-              </li>
-              <li class="list-inline-item">
-                  <i class="fab fa-html5"></i>
-              </li>
-              <li class="list-inline-item">
-                  <i class="fab fa-css3-alt"></i>
-              </li>
-              <li class="list-inline-item">
-                  <i class="fab fa-js-square"></i>
-              </li>
-	      <li class="list-inline-item">
-                 <i class="devicon-typescript-plain"></i>
-              </li>			  
-              <li class="list-inline-item">
-                  <i class="fab fa-angular"></i>
-              </li>			  
-              <li class="list-inline-item">
-                  <i class="fab fa-node-js"></i>
-              </li> 
-              <li class="list-inline-item">
-                  <i class="fab fa-sass"></i>
-              </li>
-              <li class="list-inline-item">
-                  <i class="fab fa-npm"></i>
-              </li>
-	      <li class="list-inline-item">
-                   <i class="devicon-jquery-plain-wordmark"></i>
-              </li>	 
-	      <li class="list-inline-item">
-                  <i class="devicon-codeigniter-plain"></i>
-              </li>		  
-	      <li class="list-inline-item">
-                  <i class="devicon-swift-plain-wordmark"></i>
-              </li>
-	      <li class="list-inline-item">
-                 <i class="devicon-android-plain"></i>
-              </li>		
-          </ul>
-        </div>
-      </section>
-
-      <hr class="m-0">
-
-      <!--<section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a application developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-          <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
-        </div>
-      </section>-->
-
-      <hr class="m-0">
-
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-        <div class="my-auto">
-          <h2 class="mb-5">Awards &amp; Certifications</h2>
-          <ul class="fa-ul mb-0">
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-              Microsoft Cerfied Professional for Database Fundamentals</li>
-       
-            <li>
-              <i class="fa-li fa fa-trophy text-warning"></i>
-            
-              University of Houston (Clear Lake) - Dollars For Scholars Scholarship(2015 - 2017)</li>
-            <li>
-          </ul>
-        </div>
-      </section>
-
+<section class="experience" id="experience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Experience</div>
+      <h2>Where I've built things.</h2>
+      <p>Eight-plus years across clinical software, manufacturing automation, and mobile/web products — each role adding a new layer of ownership.</p>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="job-meta">
+          <div class="job-dates">May 2022 — Present</div>
+          <div class="job-company">Medidata Solutions</div>
+          <div class="job-place">a Dassault Systèmes Company · Iselin, NJ</div>
+        </div>
+        <div>
+          <div class="job-role">Senior Applications Engineer</div>
+          <div class="job-stack">Python (FastAPI, Flask) · React · TypeScript · Snowflake · PostgreSQL · AWS (S3, Lambda, SQS, EKS, CloudFormation) · Redis · Github Actions</div>
+          <ul class="job-points">
+            <li>Design end-to-end architecture for an Interim Analysis dashboard for clinical trials (React/Python), including API contracts, database schema, and UI-to-API integration patterns; lead cross-team alignment with external stakeholders to finalize service contracts.</li>
+            <li>Lead design and architecture of scalable microservices (Flask, FastAPI) orchestrating ETL workflows — delivering 5+ services at 99.9% availability and establishing backend design patterns adopted across engineering teams.</li>
+            <li>Build intuitive React/TypeScript interfaces for Clinical Data Studio's Data Surveillance and Risk-Based Quality Management modules, enabling real-time monitoring across 500+ datasets for 100+ concurrent users.</li>
+            <li>Automate cloud infrastructure with AWS CloudFormation and Terraform across 5+ environments, cutting setup time by 40% and manual IAM errors by 90%.</li>
+            <li>Drive CI/CD adoption via GitHub Actions, reducing deployment time by 50% across 10+ repositories.</li>
+            <li>Implement distributed caching with Redis, reducing service latency by 90% at 100+ requests/second.</li>
+            <li>Serve as technical coordinator between engineering, product, and program management, translating business requirements into technical roadmaps.</li>
+            <li>Champion engineering quality across 30+ repositories through code review and mentorship, raising org-wide test coverage above 80%.</li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Plugin JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
+      <div class="job reveal">
+        <div class="job-meta">
+          <div class="job-dates">Apr 2019 — Apr 2022</div>
+          <div class="job-company">West Pharmaceutical Services</div>
+          <div class="job-place">Exton, PA</div>
+        </div>
+        <div>
+          <div class="job-role">Software Engineer</div>
+          <div class="job-stack">.NET Core · Microservices &amp; APIs · SQL Server · Entity Framework · Kubernetes · Jenkins · Azure DevOps</div>
+          <ul class="job-points">
+            <li>Designed and developed microservices and APIs using .NET Core for Digital Manufacturing Automation.</li>
+            <li>Built vendor interfacing between external and internal applications for Digital Transformation, enabling real-time data exchange across 5+ manufacturing systems and cutting manual reconciliation by 40%.</li>
+            <li>Developed automated solutions for the Manufacturing Execution System and implemented CI/CD for microservices across multiple plant locations.</li>
+            <li>Estimated technical requirements and translated them into Azure DevOps user stories, improving project planning accuracy by 20%.</li>
+            <li>Partnered with the hardware team to build the interface between devices and the West IoT Platform.</li>
+          </ul>
+        </div>
+      </div>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/resume.min.js"></script>
+      <div class="job reveal">
+        <div class="job-meta">
+          <div class="job-dates">Sep 2017 — Apr 2019</div>
+          <div class="job-company">Infinity Internet Marketing</div>
+          <div class="job-place">Houston, TX</div>
+        </div>
+        <div>
+          <div class="job-role">Application Developer</div>
+          <div class="job-stack">Ionic · Apache Cordova · Angular 4 · TypeScript · CodeIgniter · Firebase · ASP.NET MVC</div>
+          <ul class="job-points">
+            <li>Developed hybrid mobile applications using Ionic Framework, SQLite, and Angular JS.</li>
+            <li>Implemented RESTful APIs with CodeIgniter connecting mobile apps to MS SQL Server.</li>
+            <li>Enabled Firebase Cloud Messaging for push notifications and shipped a contractor mobile app to Google Play and the Apple App Store.</li>
+            <li>Built a web portal using ASP.NET MVC, jQuery, Entity Framework, and Bootstrap.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  </body>
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Technical Expertise</div>
+      <h2>The stack I build with.</h2>
+      <p>Full-stack depth from database schema to cloud infrastructure, honed across clinical and manufacturing domains.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3><span class="ic">⚙️</span>Backend</h3>
+        <div class="tag-row">
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Flask</span>
+          <span class="tag">C#</span><span class="tag">.NET Core</span><span class="tag">C</span><span class="tag">Swift</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🖥️</span>Frontend</h3>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Tanstack</span>
+          <span class="tag">JavaScript</span><span class="tag">HTML5 / CSS</span><span class="tag">jQuery / AJAX</span><span class="tag">PHP</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🗄️</span>Databases</h3>
+        <div class="tag-row">
+          <span class="tag">PostgreSQL</span><span class="tag">Snowflake</span><span class="tag">MS SQL</span>
+          <span class="tag">MongoDB</span><span class="tag">MySQL</span><span class="tag">DynamoDB</span><span class="tag">SQLite</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">☁️</span>Cloud &amp; Infrastructure</h3>
+        <div class="tag-row">
+          <span class="tag">AWS Lambda</span><span class="tag">S3</span><span class="tag">EKS</span>
+          <span class="tag">CloudFormation</span><span class="tag">SQS / MQ</span><span class="tag">Terraform</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🔁</span>CI/CD</h3>
+        <div class="tag-row">
+          <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Azure DevOps</span><span class="tag">Kubernetes</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="ic">🛠️</span>Tools &amp; Collaboration</h3>
+        <div class="tag-row">
+          <span class="tag">Git</span><span class="tag">Jira</span><span class="tag">Node.js</span><span class="tag">Grafana</span><span class="tag">Redis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section class="highlights" id="impact" style="background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-tag">Impact</div>
+      <h2>Numbers behind the work.</h2>
+      <p>Measurable outcomes from architecture decisions, automation, and mentorship across my career.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="impact-num">99.9%</div>
+        <div class="impact-label">Service availability</div>
+        <div class="impact-desc">Across 5+ microservices orchestrating clinical trial ETL workflows.</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">90%</div>
+        <div class="impact-label">Latency reduction</div>
+        <div class="impact-desc">Achieved via distributed Redis caching at 100+ requests/second.</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">50%</div>
+        <div class="impact-label">Faster deployments</div>
+        <div class="impact-desc">By driving GitHub Actions CI/CD adoption across 10+ repositories.</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">40%</div>
+        <div class="impact-label">Faster environment setup</div>
+        <div class="impact-desc">Through Terraform &amp; CloudFormation automation across 5+ environments.</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">80%+</div>
+        <div class="impact-label">Org-wide test coverage</div>
+        <div class="impact-desc">Raised through code review and mentorship across 30+ repositories.</div>
+      </div>
+      <div class="impact-card reveal">
+        <div class="impact-num">500+</div>
+        <div class="impact-label">Datasets monitored</div>
+        <div class="impact-desc">In real time via Data Surveillance &amp; Risk-Based Quality Management modules.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="split-two" id="education">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="reveal">
+        <div class="section-tag">Education</div>
+        <h2 style="margin-bottom:8px;">Academic foundation.</h2>
+        <div style="margin-top:34px;">
+          <div class="edu-item">
+            <div class="edu-degree">MS in Computer Science</div>
+            <div class="edu-school">University of Houston-Clear Lake, Houston, TX</div>
+            <div class="edu-date">Aug 2015 — May 2017</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">B.Tech in Information Technology</div>
+            <div class="edu-school">CHARUSAT University, Gujarat, India</div>
+            <div class="edu-date">Jul 2011 — May 2015</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-tag">Certifications</div>
+        <h2 style="margin-bottom:24px;">Verified expertise.</h2>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-badge">AWS</div>
+            <div class="cert-name">AWS Certified Developer – Associate</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">❄️</div>
+            <div class="cert-name">SnowPro Core Certification</div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-badge">MS</div>
+            <div class="cert-name">Microsoft Certified Professional — Database Fundamentals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-tag reveal">Let's talk</div>
+    <h2 class="reveal">Looking for a Staff or Senior Full Stack Engineer who ships and leads.</h2>
+    <p class="lede reveal">I'm open to new opportunities where I can own architecture, mentor engineers, and build systems that scale. Let's connect.</p>
+    <div class="contact-actions reveal">
+      <a class="btn btn-primary" href="mailto:khushalimehta49@gmail.com">khushalimehta49@gmail.com</a>
+      <a class="btn btn-outline" href="tel:+18324183676">(832) 418-3676</a>
+    </div>
+    <div class="contact-links reveal">
+      <a href="https://www.linkedin.com/in/khushalimehta" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="mailto:khushalimehta49@gmail.com">Email ↗</a>
+      <span>Monroe, New Jersey</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Khushali Patel. Built with care.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
 </html>
